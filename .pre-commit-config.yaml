@@ -1,0 +1,55 @@
+default_language_version:
+    python: python3
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+    - id: check-merge-conflict
+-   repo: local
+    hooks:
+    - id: black
+      name: black
+      entry: black
+      language: python
+      types: [python]
+    - id: flake8
+      name: flake8
+      entry: flake8
+      language: python
+      types: [python]
+    - id: isort
+      name: isort
+      entry: isort
+      language: python
+      types: [python]
+    - id: python-no-ipdb
+      name: check for ipdb in code
+      description: 'A quick check for the `ipdb` invokation'
+      entry: '^\s*[^#].*ipdb'
+      language: pygrep
+      types: [python]
+    - id: check-byte-order-marker
+      name: check-byte-order-marker
+      description: 'Forbid files which have a UTF-8 byte-order marker'
+      entry: check-byte-order-marker
+      language: pygrep
+      types: [python]
+    - id: mypy
+      name: mypy
+      entry: mypy
+      language: python
+      types: [python]
+      files: beepro_agency
+      args: ["--ignore-missing-imports"]
+    - id: pyupgrade
+      name: pyupgrade
+      description: Automatically upgrade syntax for newer versions.
+      entry: pyupgrade
+      language: python
+      types: [python]
+      args: ["--py310-plus"]
+- repo: https://github.com/adamchainz/django-upgrade
+  rev: "1.11.0"
+  hooks:
+    - id: django-upgrade
+      args: [ --target-version, "4.1" ]   # Replace with Django version
