@@ -11,7 +11,13 @@ import requests
 from django.conf import settings
 from django.http import HttpResponse
 from django.utils import timezone
-from exceptions import (
+from requests import HTTPError, Response, Session
+from requests.adapters import HTTPAdapter, Retry
+from rest_framework import status
+from rest_framework.exceptions import NotFound, PermissionDenied
+from twilio.rest import Client as TwilioClient
+
+from .exceptions import (
     BeeEarError,
     BeeProxyError,
     CustomAPIException,
@@ -22,11 +28,6 @@ from exceptions import (
     ServiceUnavailableException,
     ToplyneError,
 )
-from requests import HTTPError, Response, Session
-from requests.adapters import HTTPAdapter, Retry
-from rest_framework import status
-from rest_framework.exceptions import NotFound, PermissionDenied
-from twilio.rest import Client as TwilioClient
 
 billing_portal_session = requests.Session()
 logger = logging.getLogger(__name__)
