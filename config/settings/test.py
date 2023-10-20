@@ -5,7 +5,7 @@ BEEPRO_PROXY_API_KEY = "fake_key"
 BEEPRO_PROXY_URL = "https://pre-bee-beepro-proxy.getbee.info"
 
 # Toplyne
-TOPLYNE_API_URL = ""
+TOPLYNE_API_URL = "https://api.toplyne.io"
 TOPLYNE_API_TOKEN = ""
 
 TDV_API_URL = ""

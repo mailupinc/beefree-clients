@@ -1,0 +1,73 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://api.toplyne.io/v1/upload/accounts/events",
+                "body": "{\"events\": [{\"accountId\": \"PRO-1\", \"eventName\": \"Seats Update\", \"timestamp\": 1670242516.143688, \"eventProperties\": {\"paid_seats_update\": 1, \"total_paid_seats\": 3, \"free_seats_update\": 0, \"total_free_seats\": 1, \"plan\": \"beepro_team\"}}, {\"accountId\": \"PRO-2\", \"eventName\": \"Seats Update\", \"timestamp\": 1670242516.143688, \"eventProperties\": {\"paid_seats_update\": -1, \"total_paid_seats\": 2, \"free_seats_update\": 0, \"total_free_seats\": 0, \"plan\": \"beepro_team\"}}, {\"accountId\": \"PRO-3\", \"eventName\": \"Seats Update\", \"timestamp\": 1670242516.143688, \"eventProperties\": {\"paid_seats_update\": 0, \"total_paid_seats\": 2, \"free_seats_update\": -1, \"total_free_seats\": 1, \"plan\": \"beepro_team\"}}]}",
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.28.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "Content-Length": [
+                        "683"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 202,
+                    "message": ""
+                },
+                "headers": {
+                    "Expires": [
+                        "0"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ],
+                    "X-XSS-Protection": [
+                        "1; mode=block"
+                    ],
+                    "X-Frame-Options": [
+                        "DENY"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "Transfer-Encoding": [
+                        "chunked"
+                    ],
+                    "Date": [
+                        "Mon, 05 Dec 2022 12:30:14 GMT"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ],
+                    "Cache-Control": [
+                        "no-cache, no-store, max-age=0, must-revalidate"
+                    ],
+                    "Pragma": [
+                        "no-cache"
+                    ]
+                },
+                "body": {
+                    "string": "{\"status\":\"SUCCESS\",\"data\":{\"message\":\"Events uploaded.\"}}"
+                }
+            }
+        }
+    ]
+}

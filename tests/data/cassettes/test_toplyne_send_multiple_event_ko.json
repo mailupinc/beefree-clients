@@ -1,0 +1,73 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://api.toplyne.io/v1/upload/accounts/events",
+                "body": "{\"events\": [[{\"accountId\": \"PRO-1\", \"eventName\": \"Seats Update\", \"eventProperties\": {\"paid_seats_update\": 1, \"total_paid_seats\": 3, \"free_seats_update\": 0, \"total_free_seats\": 1, \"plan\": \"beepro_team\"}}, {\"accountId\": \"PRO-2\", \"eventName\": \"Seats Update\", \"timestamp\": 1670242516.143688}]]}",
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.28.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "Content-Length": [
+                        "290"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 500,
+                    "message": ""
+                },
+                "headers": {
+                    "Pragma": [
+                        "no-cache"
+                    ],
+                    "X-Frame-Options": [
+                        "DENY"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ],
+                    "Transfer-Encoding": [
+                        "chunked"
+                    ],
+                    "Expires": [
+                        "0"
+                    ],
+                    "X-XSS-Protection": [
+                        "1; mode=block"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "Date": [
+                        "Mon, 05 Dec 2022 12:50:16 GMT"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ],
+                    "Cache-Control": [
+                        "no-cache, no-store, max-age=0, must-revalidate"
+                    ]
+                },
+                "body": {
+                    "string": "{\"status\":\"ERROR\",\"error\":{\"code\":\"UNKNOWN\",\"message\":\"Internal server error\",\"details\":\"Unable to process request at our end. Contact Admin or retry after some time.\"}}"
+                }
+            }
+        }
+    ]
+}
