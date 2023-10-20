@@ -10,7 +10,7 @@ python = "~3.10"
 django = "^4.2.6"
 djangorestframework = "^3.14.0"
 requests = "^2.31.0"
-twilio = "^8.9.1"
+twilio = "^8.3.0"
 
 
 [tool.poetry.group.dev.dependencies]
