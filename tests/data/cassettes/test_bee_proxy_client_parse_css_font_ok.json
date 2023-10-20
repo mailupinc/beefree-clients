@@ -1,0 +1,61 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://pre-bee-beepro-proxy.getbee.info/api/v1/parse-css-font-url/",
+                "body": "{\"url\": \"https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;1,100&family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Rubik:wght@400;600;900\"}",
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.28.2"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "BEE-PROXY-APIKEY": [
+                        "pyXHWEm8wHnLGsuDpX7ysaMNIZYVA8cU"
+                    ],
+                    "Content-Length": [
+                        "188"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Content-Length": [
+                        "565"
+                    ],
+                    "Date": [
+                        "Fri, 19 May 2023 10:31:32 GMT"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "server": [
+                        "uvicorn"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ]
+                },
+                "body": {
+                    "string": "[{\"familyName\":\"Montserrat Alternates\",\"weight\":\"100\",\"name\":\"thin\"},{\"familyName\":\"Montserrat Alternates\",\"weight\":\"200\",\"name\":\"extra light\"},{\"familyName\":\"Montserrat Alternates\",\"weight\":\"300\",\"name\":\"light\"},{\"familyName\":\"Montserrat Alternates\",\"weight\":\"400\",\"name\":\"regular\"},{\"familyName\":\"Open Sans\",\"weight\":\"300\",\"name\":\"light\"},{\"familyName\":\"Open Sans\",\"weight\":\"400\",\"name\":\"regular\"},{\"familyName\":\"Rubik\",\"weight\":\"400\",\"name\":\"regular\"},{\"familyName\":\"Rubik\",\"weight\":\"600\",\"name\":\"semi bold\"},{\"familyName\":\"Rubik\",\"weight\":\"900\",\"name\":\"black\"}]"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "GET",
+                "uri": "https://pre-bee-beepro-proxy.getbee.info/api/v1/decode/id/f62f",
+                "body": null,
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.28.2"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "BEE-PROXY-APIKEY": [
+                        "pyXHWEm8wHnLGsuDpX7ysaMNIZYVA8cU"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Date": [
+                        "Tue, 07 Mar 2023 16:32:47 GMT"
+                    ],
+                    "Content-Length": [
+                        "4"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ],
+                    "server": [
+                        "uvicorn"
+                    ]
+                },
+                "body": {
+                    "string": "1234"
+                }
+            }
+        }
+    ]
+}

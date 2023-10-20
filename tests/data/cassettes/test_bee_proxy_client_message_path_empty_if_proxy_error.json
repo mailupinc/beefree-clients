@@ -1,0 +1,61 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://pre-bee-beepro-proxy.getbee.info/api/v1/message-path/",
+                "body": "{\"customer_id\": 1, \"brand_id\": 2, \"project_id\": 3}",
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.28.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "BEE-PROXY-APIKEY": [
+                        "pyXHWEm8wHnLGsuDpX7ysaMNIZYVA8cU"
+                    ],
+                    "Content-Length": [
+                        "50"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 422,
+                    "message": "Unprocessable Entity"
+                },
+                "headers": {
+                    "Content-Length": [
+                        "94"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "server": [
+                        "uvicorn"
+                    ],
+                    "Date": [
+                        "Wed, 28 Sep 2022 10:44:20 GMT"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ]
+                },
+                "body": {
+                    "string": "{\"detail\":[{\"loc\":[\"body\",\"message_id\"],\"msg\":\"field required\",\"type\":\"value_error.missing\"}]}"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://pre-bee-beepro-proxy.getbee.info/api/v1/check-css-font/",
+                "body": "{\"url\": \"https://fonts.googleapis.com/css?family=Tangerine\"}",
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.28.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/json"
+                    ],
+                    "BEE-PROXY-APIKEY": [
+                        "pyXHWEm8wHnLGsuDpX7ysaMNIZYVA8cU"
+                    ],
+                    "Content-Length": [
+                        "60"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "server": [
+                        "uvicorn"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "Date": [
+                        "Wed, 28 Sep 2022 11:04:36 GMT"
+                    ],
+                    "Content-Length": [
+                        "4"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ]
+                },
+                "body": {
+                    "string": "null"
+                }
+            }
+        }
+    ]
+}
