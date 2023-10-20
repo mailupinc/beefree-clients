@@ -6,7 +6,7 @@ authors = ["Bee Dev <dev@beefree.io>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "~3.10"
 django = "^4.2.6"
 djangorestframework = "^3.14.0"
 requests = "^2.31.0"
