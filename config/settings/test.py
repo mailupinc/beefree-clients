@@ -8,7 +8,7 @@ BEEPRO_PROXY_URL = "https://pre-bee-beepro-proxy.getbee.info"
 TOPLYNE_API_URL = "https://api.toplyne.io"
 TOPLYNE_API_TOKEN = ""
 
-TDV_API_URL = ""
+TDV_API_URL = "https://tdv.growens.io:9402/"
 TDV_USER = "test_user"
 TDV_PASSWORD = "test_password"
 
@@ -17,11 +17,11 @@ TDV_PASSWORD = "test_password"
 PARTNERSTACK_CUSTOMER_URL = ""
 PARTNERSTACK_USER = ""
 PARTNERSTACK_PASSWORD = ""
-PARTNERSTACK_IGNORE_ERRORS = True
+PARTNERSTACK_IGNORE_ERRORS = False
 
 # EHAWK
-EHAWK_API_URL = ""
-EHAWK_FEED_API_URL = ""
+EHAWK_API_URL = "https://api.ehawk.net"
+EHAWK_FEED_API_URL = "https://feed-api.ehawk.net"
 EHAWK_APY_KEY = ""
 EHAWK_PASSING_LIMIT_SCORE = -50
 EHAWK_PASSING_BLOCK_SCORE = -100

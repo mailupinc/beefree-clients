@@ -1,0 +1,70 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://api.ehawk.net/",
+                "body": "email=john.smith%40yahoo.com&ip=2.233.113.68&domain=yahoo.com&firstname=John&lastname=Smith&referrer=https%3A%2F%2Fbeefree.io%2F&useragent=A+User+Agent",
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.26.0"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/x-www-form-urlencoded"
+                    ],
+                    "Content-Length": [
+                        "210"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Date": [
+                        "Mon, 27 Sep 2021 08:35:20 GMT"
+                    ],
+                    "X-Frame-Options": [
+                        "SAMEORIGIN, DENY"
+                    ],
+                    "Expires": [
+                        "Mon, 26 Jul 1997 05:00:00 GMT"
+                    ],
+                    "Cache-Control": [
+                        "no-cache, must-revalidate"
+                    ],
+                    "Server": [
+                        "Apache"
+                    ],
+                    "Transfer-Encoding": [
+                        "chunked"
+                    ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
+                    "Content-Type": [
+                        "application/json; charset=utf-8"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=100"
+                    ]
+                },
+                "body": {
+                    "string": "{\"version\":\"v5.15\",\"transaction_id\":\"61518248c343a2.61677887\",\"status\":0,\"error_message\":\"\",\"score\":{\"risk\":-97,\"type\":\"Very High Risk\",\"total\":-97},\"area\":{\"ip\":-9,\"name\":0,\"email\":-8,\"domain\":1,\"geolocation\":0,\"activity\":-81,\"lead_source\":0,\"community\":0},\"ip_location\":{\"city\":\"Milan\",\"state\":\"Lombardy\",\"country\":\"Italy\",\"timezone\":\"Europe\\/Rome\",\"asn\":\"12874\",\"netblock\":\"2.232.0.0\\/13\",\"rir\":\"ripencc\"},\"risk_hits\":{\"ip\":[\"No Reverse PTR\",\"Connection Cable DSL\"],\"email\":[\"Free\",\"email domain = domain\"],\"domain\":[\"Valid\",\"Questionable\"],\"activity\":[\"4 Repeats\",\"IP links to 2 Emails\"]}}"
+                }
+            }
+        }
+    ]
+}

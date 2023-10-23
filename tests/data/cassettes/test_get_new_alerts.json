@@ -1,0 +1,70 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://feed-api.ehawk.net/alert/list/",
+                "body": "",
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.26.0"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/x-www-form-urlencoded"
+                    ],
+                    "Content-Length": [
+                        "39"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Date": [
+                        "Wed, 22 Sep 2021 12:39:34 GMT"
+                    ],
+                    "Cache-Control": [
+                        "no-cache, must-revalidate"
+                    ],
+                    "X-Frame-Options": [
+                        "SAMEORIGIN"
+                    ],
+                    "Content-Type": [
+                        "application/json;charset=utf-8"
+                    ],
+                    "Server": [
+                        "Apache"
+                    ],
+                    "Expires": [
+                        "Mon, 26 Jul 1997 05:00:00 GMT"
+                    ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=100"
+                    ],
+                    "Transfer-Encoding": [
+                        "chunked"
+                    ]
+                },
+                "body": {
+                    "string": "{\"response\":[{\"transaction_id\":\"56fbed88a7c018\", \"type\":\"ip\", \"value\":\"10.1.1.1\", \"reason\":\"Phishing\", \"transaction_score\":\"-38\", \"alert_score_impact\":\"-70\", \"estimated_new_score\":\"-108\", \"username\":\"user1234\", \"transaction_fingerprint\":\"fb713c209\", \"transaction_date\":\"2016-04-10 06:00:00 (UTC)\", \"alert_date\":\"2016-06-10 10:00:00 (UTC)\"}],\"status\":200}"
+                }
+            }
+        }
+    ]
+}

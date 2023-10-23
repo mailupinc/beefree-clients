@@ -1,0 +1,70 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://api.ehawk.net/",
+                "body": "email=john.smith%40yahoo.com&ip=2.233.113.68&domain=yahoo.com&firstname=John&lastname=Smith&referrer=https%3A%2F%2Fbeefree.io%2F&useragent=A+User+Agent&revet=true",
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.26.0"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "content-type": [
+                        "application/x-www-form-urlencoded"
+                    ],
+                    "Content-Length": [
+                        "202"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Cache-Control": [
+                        "no-cache, must-revalidate"
+                    ],
+                    "Server": [
+                        "Apache"
+                    ],
+                    "Date": [
+                        "Thu, 30 Dec 2021 10:48:44 GMT"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=100"
+                    ],
+                    "Expires": [
+                        "Mon, 26 Jul 1997 05:00:00 GMT"
+                    ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
+                    "Content-Type": [
+                        "application/json; charset=utf-8"
+                    ],
+                    "X-Frame-Options": [
+                        "SAMEORIGIN, DENY"
+                    ],
+                    "Transfer-Encoding": [
+                        "chunked"
+                    ]
+                },
+                "body": {
+                    "string": "{\"version\":\"v5.16\",\"transaction_id\":\"61cd8e8c349135.77354238\",\"status\":0,\"error_message\":\"\",\"score\":{\"risk\":-15,\"type\":\"Some Risk\",\"total\":-15},\"area\":{\"ip\":-9,\"name\":0,\"email\":-8,\"domain\":1,\"geolocation\":1,\"community\":0},\"ip_location\":{\"city\":\"Milan\",\"state\":\"Lombardy\",\"country\":\"Italy\",\"timezone\":\"Europe\\/Rome\",\"asn\":\"12874\",\"netblock\":\"2.232.0.0\\/13\",\"rir\":\"ripencc\"},\"risk_hits\":{\"ip\":[\"No Reverse PTR\",\"Connection Cable DSL\"],\"email\":[\"Free\",\"email domain = domain\"],\"domain\":[\"Valid\",\"Questionable\"]}}"
+                }
+            }
+        }
+    ]
+}
