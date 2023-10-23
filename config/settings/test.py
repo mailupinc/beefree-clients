@@ -1,4 +1,8 @@
+import logging
+
 from .base import *  # noqa
+
+logging.disable(logging.CRITICAL)
 
 # BEEPRO PROXY
 BEEPRO_PROXY_API_KEY = "fake_key"
@@ -29,12 +33,12 @@ EHAWK_ENABLED = False
 EHAWK_ENABLE_BLOCK_SCORE = False
 
 # ZAPIER
-ZAPIER_BASE_URL = ""
-ZAPIER_SUBSCRIPTION_CRUD_ZAP_PATH = ""  # Testing Path
-ZAPIER_NEW_USER_ZAP_PATH = ""  # Testing Path
-ZAPIER_NEW_TRIAL_ZAP_PATH = ""  # Testing Path
+ZAPIER_BASE_URL = "https://hooks.zapier.com/hooks/catch/"
+ZAPIER_SUBSCRIPTION_CRUD_ZAP_PATH = "6002268/oebygeo/"  # Testing Path
+ZAPIER_NEW_USER_ZAP_PATH = "10076726/bl7ioe3/"  # Testing Path
+ZAPIER_NEW_TRIAL_ZAP_PATH = "10076726/bl7ioe3/"  # Testing Path
 ZAPIER_CALLS_ENABLED = True
-OLD_ZAPIER_BASE_URL = ""
+OLD_ZAPIER_BASE_URL = "https://hooks.zapier.com/hooks/catch/fake/"
 
 # Billing Portal
 BILLING_PORTAL_API_KEY = ""
