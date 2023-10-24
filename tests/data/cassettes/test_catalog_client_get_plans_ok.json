@@ -1,0 +1,67 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "GET",
+                "uri": "https://pre-bee-billing-portal.getbee.info/api/plans/",
+                "body": null,
+                "headers": {
+                    "User-Agent": [
+                        "python-requests/2.27.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "*/*"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Allow": [
+                        "GET, HEAD, OPTIONS"
+                    ],
+                    "Referrer-Policy": [
+                        "same-origin"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "Date": [
+                        "Fri, 11 Feb 2022 17:01:57 GMT"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ],
+                    "X-Frame-Options": [
+                        "DENY"
+                    ],
+                    "Content-Length": [
+                        "9172"
+                    ],
+                    "Vary": [
+                        "Cookie"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ],
+                    "Server": [
+                        "gunicorn"
+                    ]
+                },
+                "body": {
+                    "string": "[{\"ID\":\"8adcd9eb75258ddc01754100e6757145\",\"Name\":\"Agency Yearly 2020\",\"Handle\":\"beepro_agency_annual\",\"Interval\":12,\"IntervalUnit\":\"month\",\"Price\":1200.0,\"PriceInCents\":120000.0,\"Description\":\"\",\"ProductFamily\":{\"Name\":\"BEE\"},\"ProductRatePlanCharges\":[{\"ID\":\"8adcd9eb75258ddc01754100e68b7147\",\"Name\":\"Yearly fee\",\"Type\":\"Recurring\",\"Model\":\"FlatFee\",\"UOM\":null,\"PriceSummary\":[\"USD1200\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":1200.0,\"Tiers\":null,\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Annual\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adcd9eb75258ddc01754100e6f7714e\",\"Name\":\"Additional BEE Pro Agency users\",\"Type\":\"Recurring\",\"Model\":\"Volume\",\"UOM\":\"User\",\"PriceSummary\":[\"USD300/User for 1 User or more\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":[{\"tier\":1,\"startingUnit\":1.0,\"endingUnit\":null,\"price\":300.0,\"priceFormat\":\"PerUnit\"}],\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Annual\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adcd9eb75258ddc01754100e6c0714a\",\"Name\":\"CDN Data Transfer - Hosted Images\",\"Type\":\"Usage\",\"Model\":\"Overage\",\"UOM\":\"MBs\",\"PriceSummary\":[\"Free for first 512000 MBs, thereafter USD0.0001/MBs\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":null,\"IncludedUnits\":512000.0,\"OveragePrice\":0.0001,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":null,\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"}]},{\"ID\":\"8adcd9eb75258ddc01754100d8cc7133\",\"Name\":\"Team Yearly 2020\",\"Handle\":\"beepro_team_annual\",\"Interval\":12,\"IntervalUnit\":\"month\",\"Price\":300.0,\"PriceInCents\":30000.0,\"Description\":\"\",\"ProductFamily\":{\"Name\":\"BEE\"},\"ProductRatePlanCharges\":[{\"ID\":\"8adcd9eb75258ddc01754100d94d713c\",\"Name\":\"Additional BEE Pro Team users\",\"Type\":\"Recurring\",\"Model\":\"Volume\",\"UOM\":\"User\",\"PriceSummary\":[\"USD150/User for 1 User or more\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":[{\"tier\":1,\"startingUnit\":1.0,\"endingUnit\":null,\"price\":150.0,\"priceFormat\":\"PerUnit\"}],\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Annual\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adcd9eb75258ddc01754100d9187138\",\"Name\":\"CDN Data Transfer - Hosted Images\",\"Type\":\"Usage\",\"Model\":\"Overage\",\"UOM\":\"MBs\",\"PriceSummary\":[\"Free for first 256000 MBs, thereafter USD0.0001/MBs\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":null,\"IncludedUnits\":256000.0,\"OveragePrice\":0.0001,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":null,\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adcd9eb75258ddc01754100d8e17135\",\"Name\":\"Yearly fee\",\"Type\":\"Recurring\",\"Model\":\"FlatFee\",\"UOM\":null,\"PriceSummary\":[\"USD300\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":300.0,\"Tiers\":null,\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Annual\",\"BillingPeriodAlignment\":\"AlignToCharge\"}]},{\"ID\":\"8adcd9eb75258ddc01754100ca057119\",\"Name\":\"Freelancer Yearly 2020\",\"Handle\":\"beepro_freelancer_annual\",\"Interval\":12,\"IntervalUnit\":\"month\",\"Price\":150.0,\"PriceInCents\":15000.0,\"Description\":\"\",\"ProductFamily\":{\"Name\":\"BEE\"},\"ProductRatePlanCharges\":[{\"ID\":\"8adcd9eb75258ddc01754100ca18711b\",\"Name\":\"Yearly fee\",\"Type\":\"Recurring\",\"Model\":\"FlatFee\",\"UOM\":null,\"PriceSummary\":[\"USD150\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":150.0,\"Tiers\":null,\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Annual\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adcd9eb75258ddc01754100ca49711e\",\"Name\":\"CDN Data Transfer - Hosted Images\",\"Type\":\"Usage\",\"Model\":\"Overage\",\"UOM\":\"MBs\",\"PriceSummary\":[\"Free for first 51200 MBs, thereafter USD0.0001/MBs\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":null,\"IncludedUnits\":51200.0,\"OveragePrice\":0.0001,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":null,\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"}]},{\"ID\":\"8adcd9eb75258ddc01754058d9ef0019\",\"Name\":\"Agency Monthly 2020\",\"Handle\":\"beepro_agency\",\"Interval\":1,\"IntervalUnit\":\"month\",\"Price\":120.0,\"PriceInCents\":12000.0,\"Description\":\"\",\"ProductFamily\":{\"Name\":\"BEE\"},\"ProductRatePlanCharges\":[{\"ID\":\"8adcd9eb75258ddc01754058da3f001e\",\"Name\":\"Monthly fee\",\"Type\":\"Recurring\",\"Model\":\"FlatFee\",\"UOM\":null,\"PriceSummary\":[\"USD120\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":120.0,\"Tiers\":null,\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adcd9eb75258ddc01754058da790021\",\"Name\":\"CDN Data Transfer - Hosted Images\",\"Type\":\"Usage\",\"Model\":\"Overage\",\"UOM\":\"MBs\",\"PriceSummary\":[\"Free for first 512000 MBs, thereafter USD0.0001/MBs\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":null,\"IncludedUnits\":512000.0,\"OveragePrice\":0.0001,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":null,\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adcd9eb75258ddc01754058daaa0025\",\"Name\":\"Additional BEE Pro Agency users\",\"Type\":\"Recurring\",\"Model\":\"Volume\",\"UOM\":\"User\",\"PriceSummary\":[\"USD30/User for 1 User or more\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":[{\"tier\":1,\"startingUnit\":1.0,\"endingUnit\":null,\"price\":30.0,\"priceFormat\":\"PerUnit\"}],\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"}]},{\"ID\":\"8adce42175258dce01754052f72b29d3\",\"Name\":\"Team Monthly 2020\",\"Handle\":\"beepro_team\",\"Interval\":1,\"IntervalUnit\":\"month\",\"Price\":30.0,\"PriceInCents\":3000.0,\"Description\":\"\",\"ProductFamily\":{\"Name\":\"BEE\"},\"ProductRatePlanCharges\":[{\"ID\":\"8adce42175258dce01754052f81229f5\",\"Name\":\"Additional BEE Pro Team users\",\"Type\":\"Recurring\",\"Model\":\"Volume\",\"UOM\":\"User\",\"PriceSummary\":[\"USD15/User for 1 User or more\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":[{\"tier\":1,\"startingUnit\":1.0,\"endingUnit\":null,\"price\":15.0,\"priceFormat\":\"PerUnit\"}],\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adce42175258dce01754052f7d929eb\",\"Name\":\"CDN Data Transfer - Hosted Images\",\"Type\":\"Usage\",\"Model\":\"Overage\",\"UOM\":\"MBs\",\"PriceSummary\":[\"Free for first 2048000 MBs, thereafter USD0.0001/MBs\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":null,\"IncludedUnits\":2048000.0,\"OveragePrice\":0.0001,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":null,\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adce42175258dce01754052f74629d9\",\"Name\":\"Monthly fee\",\"Type\":\"Recurring\",\"Model\":\"FlatFee\",\"UOM\":null,\"PriceSummary\":[\"USD30\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":30.0,\"Tiers\":null,\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"}]},{\"ID\":\"8adc8f9975257f0401754047dac166de\",\"Name\":\"Freelancer Monthly 2020\",\"Handle\":\"beepro_freelancer\",\"Interval\":1,\"IntervalUnit\":\"month\",\"Price\":15.0,\"PriceInCents\":1500.0,\"Description\":\"\",\"ProductFamily\":{\"Name\":\"BEE\"},\"ProductRatePlanCharges\":[{\"ID\":\"8adc8f9975257f0401754047db1466e1\",\"Name\":\"Monthly fee\",\"Type\":\"Recurring\",\"Model\":\"FlatFee\",\"UOM\":null,\"PriceSummary\":[\"USD15\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":15.0,\"Tiers\":null,\"IncludedUnits\":null,\"OveragePrice\":null,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":\"IN_ADVANCE\",\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"},{\"ID\":\"8adc8f9975257f0401754047dba266fc\",\"Name\":\"CDN Data Transfer - Hosted Images\",\"Type\":\"Usage\",\"Model\":\"Overage\",\"UOM\":\"MBs\",\"PriceSummary\":[\"Free for first 51200 MBs, thereafter USD0.0001/MBs\"],\"Pricing\":[{\"Currency\":\"USD\",\"Price\":null,\"Tiers\":null,\"IncludedUnits\":51200.0,\"OveragePrice\":0.0001,\"DiscountPercentage\":null,\"DiscountAmount\":null}],\"Taxable\":false,\"BillingDay\":\"ChargeTriggerDay\",\"BillingTiming\":null,\"BillingPeriod\":\"Month\",\"BillingPeriodAlignment\":\"AlignToCharge\"}]}]"
+                }
+            }
+        }
+    ]
+}

@@ -536,6 +536,12 @@ class SubscriptionClient(BillingPortalClient):
 class CatalogClient(BillingPortalClient):
     """Billing Portal's catalog client."""
 
+    PLAN_NAMES_MAP = []
+
+    def __init__(self, plan_names_map):
+        CatalogClient.PLAN_NAMES_MAP = plan_names_map
+        super().__init__()
+
     def get_plans(self):
         response = super().get(settings.BILLING_PORTAL_GET_CATALOG_URI)
         try:
@@ -557,9 +563,7 @@ class CatalogClient(BillingPortalClient):
 
     @staticmethod
     def _get_application_plan(handle):
-        from models import Subscription
-
-        return Subscription.PLAN_NAMES_MAP.get(handle)
+        return CatalogClient.PLAN_NAMES_MAP.get(handle)
 
     @staticmethod
     def _get_included_seats(plan):
@@ -677,12 +681,7 @@ class InvoiceClient(BillingPortalClient):
 
 class NotificationCenterClient:
     def send_notification(
-        self,
-        sender_id: int,
-        recipient_id: int,
-        customer_id: int,
-        type: str,
-        extra_fields: dict = {},
+        self, sender_id: int, recipient_id: int, customer_id: int, type: str, extra_fields: dict = {}
     ):
         data = {
             "sender_id": sender_id,
@@ -692,7 +691,11 @@ class NotificationCenterClient:
             "extra_fields": extra_fields,
         }
 
-        res = self.send(data)
+        try:
+            res = self.send(data)
+        except (requests.ConnectionError, requests.Timeout):
+            logger.error("NotificationClient Error: Connection Error")
+            raise NotificationError
 
         if res.status_code != 201:
             raise NotificationError
@@ -703,12 +706,7 @@ class NotificationCenterClient:
             raise NotificationError
 
     def send_bulk_notification(
-        self,
-        sender_id: int,
-        customer_id: int,
-        recipient_ids: list,
-        type: str,
-        extra_fields: dict = {},
+        self, sender_id: int, customer_id: int, recipient_ids: list, type: str, extra_fields: dict = {}
     ):
         data = {
             "sender_id": sender_id,
@@ -717,7 +715,11 @@ class NotificationCenterClient:
             "type": type,
             "extra_fields": extra_fields,
         }
-        res = self.send_bulk(data)
+        try:
+            res = self.send_bulk(data)
+        except (requests.ConnectionError, requests.Timeout):
+            logger.error("NotificationClient Error: Connection Error")
+            return None
 
         if res.status_code != 201:
             logger.error(f"NotificationClient Error: status code {res.status_code}")

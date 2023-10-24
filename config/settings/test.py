@@ -55,3 +55,22 @@ DATA_SERVICE_CALLS_ENABLED = True
 # Hook Service
 HOOK_SERVICE_BASE_URL = ""
 HOOK_SERVICE_CALLS_ENABLED = True
+
+# Billing Portal
+BILLING_PORTAL_API_BASE_URL = "https://pre-bee-billing-portal.getbee.info/api/"
+BILLING_PORTAL_SUBSCRIPTION_URI = "subscriptions/"
+BILLING_PORTAL_CHARGIFY_SUBSCRIPTION_URI = "chargify-subscriptions/"
+BILLING_PORTAL_GET_RENEWALS_URI = "renewals/"
+BILLING_PORTAL_GET_RENEWAL_CHARGES_URI = "renewal-charges/"
+BILLING_PORTAL_USER_QUANTITY_URI = "user-quantity/"
+BILLING_PORTAL_GET_CATALOG_URI = "plans/"
+BILLING_PORTAL_GET_PRICES_URI = "prices/"
+BILLING_PORTAL_GET_PAYMENTS_URI = "payments/"
+BILLING_PORTAL_GET_IFRAME_CONFIG_URI = "iframe-config/"
+BILLING_PORTAL_SET_NEW_PAYMENT_URI = "set-new-payment/"
+BILLING_PORTAL_UPDATE_ACCOUNT_URI = "account/"
+BILLING_PORTAL_INVOICES_URI = "invoices/"
+
+NOTIFICATION_CENTER_URL = "https://pre-bee-notification-center.getbee.info"
+
+BACKEND_BASE_URL = "https://base_be.url.tld"
