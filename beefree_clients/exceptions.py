@@ -1,27 +1,24 @@
-from rest_framework import status
-from rest_framework.exceptions import APIException
-
-# class CustomException(Exception):
-#     def __init__(self, message=None, code=None):
-#         self.message = message
-#         self.code = code
+import requests
 
 
-class CustomAPIException(APIException):
-    default_code = "API Error"
+class CustomClientException(Exception):
+    detail = "API Error"
+    status_code = requests.codes.internal_server_error
 
-    def __init__(self, detail, status_code):
-        self.status_code = status_code
-        super().__init__(detail)
+    def __init__(self, detail=None, status_code=None) -> None:
+        if detail is not None:
+            self.detail = detail
+        if status_code is not None:
+            self.status_code = status_code
 
 
-class ParserError(CustomAPIException):
+class ParserError(CustomClientException):
     """Custom error to handle parser service errors."""
 
     default_code = "Parser Error"
 
 
-class TransformerError(CustomAPIException):
+class TransformerError(CustomClientException):
     """Custom error to handle tansformer service errors."""
 
     default_code = "Transformer Error"
@@ -32,4 +29,4 @@ class InvalidParserConfigurationError(Exception):
 
     def __init__(self, message_type):
         self.message = f"Message type unexpected [{message_type}]"
-        self.code = status.HTTP_501_NOT_IMPLEMENTED
+        self.code = 501

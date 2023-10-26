@@ -10,7 +10,7 @@ import requests
 from requests import Response, Session
 from requests.adapters import HTTPAdapter, Retry
 
-from .exceptions import CustomAPIException, InvalidParserConfigurationError, ParserError, TransformerError
+from .exceptions import CustomClientException, InvalidParserConfigurationError, ParserError, TransformerError
 
 billing_portal_session = requests.Session()
 logger = logging.getLogger(__name__)
@@ -124,7 +124,7 @@ class BaseClient:
     base_url: str = ""
     base_auth: tuple = ()
     header_auth: dict[str, str] = {}
-    error: CustomAPIException = CustomAPIException
+    error: CustomClientException = CustomClientException
 
     def __init__(self, base_url: str, headers: dict | None = None):
         self.base_url = base_url
