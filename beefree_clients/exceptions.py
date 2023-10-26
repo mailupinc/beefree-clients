@@ -1,16 +1,10 @@
-from django.utils.translation import gettext_lazy as _
+from rest_framework import status
 from rest_framework.exceptions import APIException
-from rest_framework.status import HTTP_503_SERVICE_UNAVAILABLE
 
-
-class CustomException(Exception):
-    def __init__(self, message=None, code=None):
-        self.message = message
-        self.code = code
-
-
-class NotificationError(Exception):
-    pass
+# class CustomException(Exception):
+#     def __init__(self, message=None, code=None):
+#         self.message = message
+#         self.code = code
 
 
 class CustomAPIException(APIException):
@@ -21,43 +15,21 @@ class CustomAPIException(APIException):
         super().__init__(detail)
 
 
-class PendoClientNotConfigured(CustomException):
-    """Custom error to handle Pendo configuration errors."""
+class ParserError(CustomAPIException):
+    """Custom error to handle parser service errors."""
 
-    pass
-
-
-class PendoClientError(CustomException):
-    """Custom error to handle Pendo service errors."""
-
-    pass
+    default_code = "Parser Error"
 
 
-class EhawkError(CustomAPIException):
-    """Custom error to handle Ehawk service errors."""
+class TransformerError(CustomAPIException):
+    """Custom error to handle tansformer service errors."""
 
-    default_code = "Ehwak Error"
-
-
-class BeeProxyError(CustomAPIException):
-    """Custom error to handle BeeProxy service errors."""
-
-    default_code = "BeeProxy Error"
+    default_code = "Transformer Error"
 
 
-class BeeEarError(CustomAPIException):
-    """Custom error to handle BEE Ear service errors."""
+class InvalidParserConfigurationError(Exception):
+    """Custom error to handle else branch when unexpected configuration value is receviced."""
 
-    default_code = "BEE Ear Error"
-
-
-class ServiceUnavailableException(APIException):
-    status_code = HTTP_503_SERVICE_UNAVAILABLE
-    default_detail = _("Service unavailable.")
-    default_code = "service_unavailable"
-
-
-class ToplyneError(CustomAPIException):
-    """Custom error to handle ToplyneError service errors."""
-
-    default_code = "Toplyne Error"
+    def __init__(self, message_type):
+        self.message = f"Message type unexpected [{message_type}]"
+        self.code = status.HTTP_501_NOT_IMPLEMENTED
