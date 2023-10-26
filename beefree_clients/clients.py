@@ -3,7 +3,6 @@ import json
 import logging
 from abc import ABC, abstractmethod
 from types import MappingProxyType
-from typing import Literal
 from urllib.parse import urljoin
 
 import requests
@@ -14,6 +13,7 @@ from .exceptions import CustomClientException, InvalidParserConfigurationError, 
 
 billing_portal_session = requests.Session()
 logger = logging.getLogger(__name__)
+
 
 GLOBAL_CLIENT_SESSIONS = MappingProxyType(
     {
@@ -159,6 +159,7 @@ class BaseClient:
         query_params: dict | None = None,
         data: str | dict | None = None,
         payload: dict | None = None,
+        headers: dict = {},
     ) -> Response:
         try:
             response = self.session.request(
@@ -167,7 +168,7 @@ class BaseClient:
                 params=query_params,
                 data=data,
                 json=payload,
-                headers=self.headers,
+                headers=self.headers | headers,
                 auth=self.base_auth,  # type: ignore
             )
         except (requests.ConnectionError, requests.Timeout) as e:
@@ -185,11 +186,12 @@ class BaseClient:
         data: str | dict | None = None,
         payload: dict | None = None,
         query_params: dict | None = None,
+        headers: dict = {},
     ) -> Response:
-        return self._request("POST", url, data=data, payload=payload, query_params=query_params)
+        return self._request("POST", url, data=data, payload=payload, query_params=query_params, headers=headers)
 
-    def _get(self, url: str, query_params: dict | None = None) -> Response:
-        return self._request("GET", url, query_params=query_params)
+    def _get(self, url: str, query_params: dict | None = None, headers: dict = {}) -> Response:
+        return self._request("GET", url, query_params=query_params, headers=headers)
 
 
 class BeeHtmlTransformerClient(BaseClient):
@@ -215,41 +217,44 @@ class BeeHtmlTransformerClient(BaseClient):
         return transformed_html
 
 
-class BeeMultiParser(BaseClient):
+class BeeMultiParserClient(BaseClient):
     service_name = "BeeMultiparser"
     content_type = "application/json"
     adapter = StatelessFastServiceHTTPAdapter()
     error = ParserError
 
-    def __init__(
-        self,
-        base_url: str,
-        message_type: Literal["email", "page"],
-        base_auth: tuple = (),
-        client_id: str | None = None,
-        source: str | None = None,
-        forwarded_for: str | None = None,
-    ):
-        self.message_type = message_type
+    CLIENT_ID_MAP = {"email": "email_client_id", "pages": "page_client_id"}
+
+    def __init__(self, base_url: str, base_auth: tuple = (), source: str | None = None, client_id_map: dict = {}):
         self.base_auth = base_auth
-        headers = self._headers(client_id, source, forwarded_for)
+        headers = self._headers(source)
+        self._init_client_id_map(client_id_map)
         super().__init__(base_url, headers)
 
-    def _headers(self, client_id, source, forwarded_for):
-        if self.message_type not in ["email", "page"]:
-            raise InvalidParserConfigurationError(self.message_type)
-        headers = {"x-bee-clientid": client_id, "x-bee-source": source, "x-bee-forwarded-for": forwarded_for}
+    def _init_client_id_map(self, client_id_map):
+        if not client_id_map.get("email") or not client_id_map.get("page"):
+            raise InvalidParserConfigurationError("not-page-not-email")
+        self.CLIENT_ID_MAP = client_id_map
+
+    def _headers(self, source):
+        headers = {"x-bee-source": source}
         return headers
 
-    def parse_json(self, message_json: dict, query_params: dict | None = None) -> str:
-        if self.message_type == "email":
+    def parse_json(
+        self, message_type, message_json: dict, query_params: dict | None = None, forwarded_for: str = ""
+    ) -> str:
+        headers: dict = {}
+        headers["x-bee-forwarded-for"] = forwarded_for
+        if message_type == "email":
             endpoint = "v3/parser/email?b=1"
-        elif self.message_type == "page":
+            headers["x-bee-client-id"] = self.CLIENT_ID_MAP.get("email")
+        elif message_type == "page":
             endpoint = "v3/parser/pages"
+            headers["x-bee-client-id"] = self.CLIENT_ID_MAP.get("pages")
         url = urljoin(self.base_url, endpoint)
         message_html = ""
         if message_json:
             json_string = json.dumps(message_json).encode("utf-8")
-            response = self._post(url, data=json_string, query_params=query_params)
+            response = self._post(url, data=json_string, query_params=query_params, headers=headers)
             message_html = response.text
         return message_html
