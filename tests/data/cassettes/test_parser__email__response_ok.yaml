@@ -1,0 +1,105 @@
+interactions:
+- request:
+    body: '{"page": {"title": "", "description": "", "rows": [{"uuid": "74bcfbe3-e1cf-4efb-b4c4-ad4d65d8fc13",
+      "type": "one-column-empty", "locked": false, "columns": [{"uuid": "4aa907fa-b8d9-4fd2-8339-5c16c96419a1",
+      "style": {"background-color": "transparent", "border-bottom": "0 solid transparent",
+      "border-left": "0 solid transparent", "border-right": "0 solid transparent",
+      "border-top": "0 solid transparent", "padding-bottom": "5px", "padding-left":
+      "0", "padding-right": "0", "padding-top": "5px"}, "modules": [], "grid-columns":
+      12}], "container": {"style": {"background-color": "transparent", "background-image":
+      "none", "background-position": "top left", "background-repeat": "no-repeat"}},
+      "content": {"style": {"background-color": "transparent", "background-image":
+      "none", "background-position": "top left", "background-repeat": "no-repeat",
+      "color": "#000000", "width": "500px"}, "computedStyle": {"hideContentOnDesktop":
+      false, "hideContentOnMobile": false, "rowColStackOnMobile": true, "rowReverseColStackOnMobile":
+      false, "vertical-align": "top"}}}], "body": {"webFonts": [], "content": {"style":
+      {"color": "#000000", "font-family": "Arial, Helvetica Neue, Helvetica, sans-serif"},
+      "computedStyle": {"linkColor": "#0068A5", "messageBackgroundColor": "transparent",
+      "messageWidth": "500px"}}, "container": {"style": {"background-color": "#FFFFFF"}}},
+      "template": {"version": "2.0.0"}}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1391'
+      User-Agent:
+      - python-requests/2.31.0
+      content-type:
+      - application/json
+      x-bee-clientid:
+      - ClientIdForEmailBuilder
+      x-bee-forwarded-for:
+      - 0.0.0.0
+      x-bee-source:
+      - bee-beepro
+    method: POST
+    uri: https://bee-multiparser.getbee.io/api/v3/parser/email?b=1
+  response:
+    body:
+      string: "<!DOCTYPE html>\n<html xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\"
+        lang=\"en\">\n\n<head>\n\t<title></title>\n\t<meta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=utf-8\">\n\t<meta name=\"viewport\" content=\"width=device-width,
+        initial-scale=1.0\"><!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->\n\t<style>\n\t\t*
+        {\n\t\t\tbox-sizing: border-box;\n\t\t}\n\n\t\tbody {\n\t\t\tmargin: 0;\n\t\t\tpadding:
+        0;\n\t\t}\n\n\t\ta[x-apple-data-detectors] {\n\t\t\tcolor: inherit !important;\n\t\t\ttext-decoration:
+        inherit !important;\n\t\t}\n\n\t\t#MessageViewBody a {\n\t\t\tcolor: inherit;\n\t\t\ttext-decoration:
+        none;\n\t\t}\n\n\t\tp {\n\t\t\tline-height: inherit\n\t\t}\n\n\t\t.desktop_hide,\n\t\t.desktop_hide
+        table {\n\t\t\tmso-hide: all;\n\t\t\tdisplay: none;\n\t\t\tmax-height: 0px;\n\t\t\toverflow:
+        hidden;\n\t\t}\n\n\t\t.image_block img+div {\n\t\t\tdisplay: none;\n\t\t}\n\n\t\t@media
+        (max-width:520px) {\n\t\t\t.mobile_hide {\n\t\t\t\tdisplay: none;\n\t\t\t}\n\n\t\t\t.row-content
+        {\n\t\t\t\twidth: 100% !important;\n\t\t\t}\n\n\t\t\t.stack .column {\n\t\t\t\twidth:
+        100%;\n\t\t\t\tdisplay: block;\n\t\t\t}\n\n\t\t\t.mobile_hide {\n\t\t\t\tmin-height:
+        0;\n\t\t\t\tmax-height: 0;\n\t\t\t\tmax-width: 0;\n\t\t\t\toverflow: hidden;\n\t\t\t\tfont-size:
+        0px;\n\t\t\t}\n\n\t\t\t.desktop_hide,\n\t\t\t.desktop_hide table {\n\t\t\t\tdisplay:
+        table !important;\n\t\t\t\tmax-height: none !important;\n\t\t\t}\n\t\t}\n\t</style>\n</head>\n\n<body
+        style=\"background-color: #fff; margin: 0; padding: 0; -webkit-text-size-adjust:
+        none; text-size-adjust: none;\">\n\t<table class=\"nl-container\" width=\"100%\"
+        border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" style=\"mso-table-lspace:
+        0pt; mso-table-rspace: 0pt; background-color: #fff;\">\n\t\t<tbody>\n\t\t\t<tr>\n\t\t\t\t<td>\n\t\t\t\t\t<table
+        class=\"row row-1\" align=\"center\" width=\"100%\" border=\"0\" cellpadding=\"0\"
+        cellspacing=\"0\" role=\"presentation\" style=\"mso-table-lspace: 0pt; mso-table-rspace:
+        0pt;\">\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<table
+        class=\"row-content stack\" align=\"center\" border=\"0\" cellpadding=\"0\"
+        cellspacing=\"0\" role=\"presentation\" style=\"mso-table-lspace: 0pt; mso-table-rspace:
+        0pt; color: #000; width: 500px; margin: 0 auto;\" width=\"500\">\n\t\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<td
+        class=\"column column-1\" width=\"100%\" style=\"mso-table-lspace: 0pt; mso-table-rspace:
+        0pt; font-weight: 400; text-align: left; border-bottom: 0 solid transparent;
+        border-left: 0 solid transparent; border-right: 0 solid transparent; border-top:
+        0 solid transparent; padding-bottom: 5px; padding-top: 5px; vertical-align:
+        top;\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<table class=\"empty_block block-1\" width=\"100%\"
+        border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" style=\"mso-table-lspace:
+        0pt; mso-table-rspace: 0pt;\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td
+        class=\"pad\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t</td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table><!--
+        End -->\n</body>\n\n</html>"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Thu, 26 Oct 2023 07:40:51 GMT
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Via:
+      - 1.1 f67300f3f8cdb57206b44bd20832d62e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 3DK8I0Q4GyuL-rIQTMB7WKSxKx9xQgQuVlcJqRoZP9LrQdX_KIESmg==
+      X-Amz-Cf-Pop:
+      - FCO50-P2
+      X-Cache:
+      - Miss from cloudfront
+      access-control-allow-origin:
+      - '*'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: '{"bad": "structure"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '20'
+      User-Agent:
+      - python-requests/2.31.0
+      content-type:
+      - application/json
+      x-bee-clientid:
+      - ClientIdForEmailBuilder
+      x-bee-forwarded-for:
+      - 0.0.0.0
+      x-bee-source:
+      - bee-beepro
+    method: POST
+    uri: https://bee-multiparser.getbee.io/api/v3/parser/pages
+  response:
+    body:
+      string: "<!DOCTYPE html>\n<html>\n\n<head>\n\t<title></title>\n\t<meta charset=\"UTF-8\">\n\t<meta
+        name=\"viewport\" content=\"width=device-width\">\n\t<style>\n\t\t.bee-row,\n\t\t.bee-row-content
+        {\n\t\t\tposition: relative\n\t\t}\n\n\t\t.bee-row-1,\n\t\t.bee-row-1 .bee-row-content
+        {\n\t\t\tbackground-repeat: no-repeat\n\t\t}\n\n\t\tbody {\n\t\t\tbackground-color:
+        #fff;\n\t\t\tcolor: #000;\n\t\t\tfont-family: Arial, Helvetica Neue, Helvetica,
+        sans-serif\n\t\t}\n\n\t\t* {\n\t\t\tbox-sizing: border-box\n\t\t}\n\n\t\tbody
+        {\n\t\t\tmargin: 0\n\t\t}\n\n\t\t.bee-row-content {\n\t\t\tmax-width: 500px;\n\t\t\tmargin:
+        0 auto;\n\t\t\tdisplay: flex\n\t\t}\n\n\t\t.bee-row-content .bee-col-w12 {\n\t\t\tflex-basis:
+        100%\n\t\t}\n\n\t\t@media (max-width:520px) {\n\t\t\t.bee-row-content:not(.no_stack)
+        {\n\t\t\t\tdisplay: block\n\t\t\t}\n\t\t}\n\n\t\t.bee-row-1 .bee-row-content
+        {\n\t\t\tcolor: #000\n\t\t}\n\n\t\t.bee-row-1 .bee-col-1 {\n\t\t\tborder-bottom:
+        0 solid transparent;\n\t\t\tborder-left: 0 solid transparent;\n\t\t\tborder-right:
+        0 solid transparent;\n\t\t\tborder-top: 0 solid transparent;\n\t\t\tpadding:
+        5px 0\n\t\t}\n\t</style>\n</head>\n\n<body>\n\t<div class=\"bee-page-container\">\n\t\t<div
+        class=\"bee-row bee-row-1\">\n\t\t\t<div class=\"bee-row-content\">\n\t\t\t\t<div
+        class=\"bee-col bee-col-1 bee-col-w12\"></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</body>\n\n</html>"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Thu, 26 Oct 2023 07:52:29 GMT
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Origin
+      Via:
+      - 1.1 4c3e19d16566f783e777fc03e9811688.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 6FZDvlbNWd5ZlGObjbTDYPhGEriYEVhkOLvf4IOcjZxp08ckowtrOA==
+      X-Amz-Cf-Pop:
+      - FCO50-P2
+      X-Cache:
+      - Miss from cloudfront
+      access-control-allow-origin:
+      - '*'
+    status:
+      code: 200
+      message: OK
+version: 1
