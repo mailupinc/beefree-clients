@@ -126,8 +126,9 @@ class BaseClient:
     header_auth: dict[str, str] = {}
     error: CustomClientException = CustomClientException
 
-    def __init__(self, base_url: str, headers: dict | None = None):
-        self.base_url = base_url
+    def __init__(self, base_url: str | None, headers: dict | None = None):
+        if base_url:
+            self.base_url = base_url
         self.headers = headers or {}
         self._update_headers()
         self.session = self._get_session()
