@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  beefree-clients:
+    container_name: beefree-clients
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      target: $build_target
+      args:
+        - git_sha
+        - git_tag
+    image: bee/beefree-clients
+    volumes:
+      - ../:/opt/beefree-clients
+
+volumes:
+  data_vol:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
