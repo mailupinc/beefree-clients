@@ -203,14 +203,14 @@ class BeeHtmlTransformerClient(BaseClient):
     adapter = StatelessFastServiceHTTPAdapter()
     error = TransformerError
 
-    def __init__(self, base_url, token: str):
-        headers = {"Authorization": f"Bearer {token}"}
-        super().__init__(base_url, headers)
+    def __init__(self, base_url):
+        super().__init__(base_url)
 
-    def transform_html(self, payload: dict, transformer_endpoint: str) -> str:
+    def transform_html(self, payload: dict, transformer_endpoint: str, token: str) -> str:
         if payload:
             url = self.base_url + transformer_endpoint
-            transformer_response = self._post(url=url, payload=payload)
+            headers = {"Authorization": f"Bearer {token}"}
+            transformer_response = self._post(url=url, payload=payload, headers=headers)
             response_json = transformer_response.json()
             transformed_html = response_json["html"]
         else:

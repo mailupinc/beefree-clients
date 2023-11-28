@@ -13,11 +13,11 @@ class TestBeeHtmlTransfomerClient(TestCase):
     def test_bee_transformer_ok(self):
         transformer_endpoint = "preheader/transform/"
         token = "a-token"
-        transformer = BeeHtmlTransformerClient(self.transformer_base_url, token)
+        transformer = BeeHtmlTransformerClient(self.transformer_base_url)
         transformer_payload = {"html": "html text", "preheader_text": "my-preheaader"}
         with mock.patch("beefree_clients.clients.requests.sessions.Session.request") as mock_requests:
             mock_requests.return_value.status_code = 200
-            transformer.transform_html(transformer_payload, transformer_endpoint)
+            transformer.transform_html(transformer_payload, transformer_endpoint, token)
             self.assertEqual(
                 mock_requests.call_args,
                 mock.call(
@@ -34,17 +34,17 @@ class TestBeeHtmlTransfomerClient(TestCase):
     def test_bee_transformer_connection_error(self):
         transformer_endpoint = "preheader/transform/"
         token = "a-token"
-        transformer = BeeHtmlTransformerClient(self.transformer_base_url, token)
+        transformer = BeeHtmlTransformerClient(self.transformer_base_url)
         transformer_payload = {"html": "html text", "preheader_text": "my-preheaader"}
         with mock.patch("beefree_clients.clients.requests.sessions.Session.request") as mock_requests:
             mock_requests.side_effect = requests.exceptions.ConnectionError()
             with self.assertRaises(TransformerError):
-                transformer.transform_html(transformer_payload, transformer_endpoint)
+                transformer.transform_html(transformer_payload, transformer_endpoint, token)
 
     def test_bee_transformer_bad_response(self):
         transformer_endpoint = "preheader/transform/"
         token = "a-token"
-        transformer = BeeHtmlTransformerClient(self.transformer_base_url, token)
+        transformer = BeeHtmlTransformerClient(self.transformer_base_url)
         transformer_payload = {"html": "html text", "preheader_text": "my-preheaader"}
         with mock.patch("beefree_clients.clients.requests.sessions.Session.request") as mock_requests:
             response = mock.Mock
@@ -52,5 +52,5 @@ class TestBeeHtmlTransfomerClient(TestCase):
             response.reason = "Not Authenticated"
             mock_requests.side_effect = requests.exceptions.HTTPError(response=response)
             with self.assertRaises(TransformerError) as error:
-                transformer.transform_html(transformer_payload, transformer_endpoint)
+                transformer.transform_html(transformer_payload, transformer_endpoint, token)
             error.exception.status_code = 401
