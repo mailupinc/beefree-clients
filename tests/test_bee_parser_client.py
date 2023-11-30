@@ -7,7 +7,7 @@ import requests
 from base import beepro_vcr
 from vcr import VCR
 
-from beefree_clients.clients import BeeMultiParser
+from beefree_clients.clients import BeeMultiParserClient
 from beefree_clients.exceptions import InvalidParserConfigurationError, ParserError
 
 
@@ -20,8 +20,7 @@ class TestBeeParser(TestCase):
         cls.req = mock.Mock()
         cls.source = "bee-beepro"
         cls.forwarded_for = "0.0.0.0"
-        cls.email_client_id = "ClientIdForEmailBuilder"
-        cls.page_client_id = "ClientIdForPageBuilder"
+        cls.client_id_map = {"email": "ClientIdForEmailBuilder", "page": "ClientIdForPageBuilder"}
         cls.parser_base_url = "https://bee-multiparser.getbee.io/api/"
         cls.parser_auth = ("AuthBeePp", "65a4389571f5f6e801146ffd70903e56e9329d8d3ae38095bd88f2abbeaebe80")
 
@@ -32,10 +31,8 @@ class TestBeeParser(TestCase):
             path_transformer=VCR.ensure_suffix(".yaml"),
             match_on=["method", "scheme", "host", "port", "path", "body"],
         ) as cassette:
-            parser = BeeMultiParser(
-                self.parser_base_url, "email", self.parser_auth, self.email_client_id, self.source, self.forwarded_for
-            )
-            response = parser.parse_json(self.json_content)
+            parser = BeeMultiParserClient(self.parser_base_url, self.parser_auth, self.source, self.client_id_map)
+            response = parser.parse_json("email", self.json_content)
 
         assert isinstance(response, str) is True
         assert response.startswith("<!DOCTYPE html>")
@@ -55,10 +52,8 @@ class TestBeeParser(TestCase):
             path_transformer=VCR.ensure_suffix(".yaml"),
             match_on=["method", "scheme", "host", "port", "path", "body"],
         ) as cassette:
-            parser = BeeMultiParser(
-                self.parser_base_url, "page", self.parser_auth, self.page_client_id, self.source, self.forwarded_for
-            )
-            response = parser.parse_json(self.json_content)
+            parser = BeeMultiParserClient(self.parser_base_url, self.parser_auth, self.source, self.client_id_map)
+            response = parser.parse_json("page", self.json_content)
 
         assert isinstance(response, str) is True
         assert response.startswith("<!DOCTYPE html>")
@@ -73,13 +68,8 @@ class TestBeeParser(TestCase):
 
     def test_parser__unknown_message_type__raises_exception(self):
         with self.assertRaises(InvalidParserConfigurationError) as exc:
-            _ = BeeMultiParser(
-                self.parser_base_url,
-                "not-page-not-email",
-                self.parser_auth,
-                self.email_client_id,
-                self.source,
-                self.forwarded_for,
+            _ = BeeMultiParserClient(
+                self.parser_base_url, self.parser_auth, self.source, {"not-page-not-email": "not-page-not-email"}
             )
 
         assert exc.exception.code == 501
@@ -92,23 +82,20 @@ class TestBeeParser(TestCase):
             path_transformer=VCR.ensure_suffix(".yaml"),
             match_on=["method", "scheme", "host", "port", "path", "body"],
         ) as cassette:
-            parser = BeeMultiParser(
-                self.parser_base_url, "page", self.parser_auth, self.email_client_id, self.source, self.forwarded_for
-            )
+            parser = BeeMultiParserClient(self.parser_base_url, self.parser_auth, self.source, self.client_id_map)
 
-            assert parser.parse_json({}) == ""
-            assert parser.parse_json("") == ""
-            assert parser.parse_json(None) == ""
+            assert parser.parse_json("email", {}) == ""
+            assert parser.parse_json("email", "") == ""
+            assert parser.parse_json("email", None) == ""
             assert cassette.play_count == 0
 
     def test_parser__parser_error__timeout(self):
-        parser = BeeMultiParser(
-            self.parser_base_url, "page", self.parser_auth, self.email_client_id, self.source, self.forwarded_for
-        )
+        parser = BeeMultiParserClient(self.parser_base_url, self.parser_auth, self.source, self.client_id_map)
+
         with mock.patch("beefree_clients.clients.requests.sessions.Session.request") as mock_requests:
             mock_requests.side_effect = requests.exceptions.Timeout()
             with self.assertRaises(ParserError) as exc:
-                _ = parser.parse_json(self.json_content)
+                _ = parser.parse_json("email", self.json_content)
 
         assert exc.exception.status_code == 502
         assert str(exc.exception.detail) == "BeeMultiparser service not available"
@@ -116,9 +103,8 @@ class TestBeeParser(TestCase):
     @pytest.mark.skip("this behaviour is changed on parser side")
     @beepro_vcr.use_cassette(serializer="yaml", path_transformer=VCR.ensure_suffix(".yaml"))
     def test_parser__http_error(self):
-        parser = BeeMultiParser(
-            self.parser_base_url, "page", self.parser_auth, self.email_client_id, self.source, self.forwarded_for
-        )
+        parser = BeeMultiParserClient(self.parser_base_url, self.parser_auth, self.client_id_map, self.source)
+
         with self.assertRaises(ParserError) as exc:
             parser.parse_json({"bad": "structure"})
 
@@ -131,14 +117,8 @@ class TestBeeParser(TestCase):
         pass
 
     def test_bee_parser_client_instances_share_session(self):
-        bmpc_1 = BeeMultiParser(
-            self.parser_base_url, "email", self.parser_auth, self.email_client_id, self.source, self.forwarded_for
-        )
-        bmpc_2 = BeeMultiParser(
-            self.parser_base_url, "page", self.parser_auth, self.page_client_id, self.source, self.forwarded_for
-        )
-        bmpc_3 = BeeMultiParser(
-            self.parser_base_url, "email", self.parser_auth, self.email_client_id, self.source, self.forwarded_for
-        )
+        bmpc_1 = BeeMultiParserClient(self.parser_base_url, self.parser_auth, self.source, self.client_id_map)
+        bmpc_2 = BeeMultiParserClient(self.parser_base_url, self.parser_auth, self.source, self.client_id_map)
+        bmpc_3 = BeeMultiParserClient(self.parser_base_url, self.parser_auth, self.source, self.client_id_map)
 
         assert bmpc_1.session == bmpc_2.session == bmpc_3.session
