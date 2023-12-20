@@ -114,7 +114,7 @@ class TimeoutOnlyHTTPAdapter(HttpAdapterFactory):
         return Retry(total=0)
 
 
-class BaseLibraryClient:
+class BaseClient:
     """Implement some shared custom configuration of requests Session object"""
 
     service_name: str
@@ -125,8 +125,7 @@ class BaseLibraryClient:
     header_auth: dict[str, str] = {}
     error: CustomClientException = CustomClientException
 
-    def __init__(self, base_url: str, headers: dict | None = None):
-        self.base_url = base_url
+    def __init__(self, headers: dict | None = None):
         self.headers = headers or {}
         self._update_headers()
         self.session = self._get_session()
@@ -172,8 +171,7 @@ class BaseLibraryClient:
             )
         except (requests.ConnectionError, requests.Timeout) as e:
             raise self.error(
-                detail=f"{self.service_name} service not available",
-                status_code=requests.codes.bad_gateway,
+                detail=f"{self.service_name} service not available", status_code=requests.codes.bad_gateway
             ) from e
         except requests.exceptions.HTTPError as e:
             raise self.error(detail=e.response.reason, status_code=e.response.status_code) from e
@@ -185,12 +183,20 @@ class BaseLibraryClient:
         data: str | dict | None = None,
         payload: dict | None = None,
         query_params: dict | None = None,
-        headers: dict = {},
+        headers={},
     ) -> Response:
         return self._request("POST", url, data=data, payload=payload, query_params=query_params, headers=headers)
 
-    def _get(self, url: str, query_params: dict | None = None, headers: dict = {}) -> Response:
+    def _get(self, url: str, query_params: dict | None = None, headers={}) -> Response:
         return self._request("GET", url, query_params=query_params, headers=headers)
+
+
+class BaseLibraryClient(BaseClient):
+    """Implement some shared custom configuration of requests Session object"""
+
+    def __init__(self, base_url: str, headers: dict | None = None):
+        self.base_url = base_url
+        super().__init__(headers)
 
 
 class BeeHtmlTransformerClient(BaseLibraryClient):
